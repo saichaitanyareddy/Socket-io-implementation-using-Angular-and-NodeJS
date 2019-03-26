@@ -1,0 +1,7 @@
+.alert{
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    color: #ffffff;
+    background-color: rgb(23, 93, 155);
+}

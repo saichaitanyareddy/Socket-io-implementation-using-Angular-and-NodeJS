@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="pricing-header px-1 py-1 pt-md-3 pb-md-2 mx-auto text-center">
+        <h1 class="display-4">Authenticate</h1>
+        <p class="lead">login and signup</p>
+    </div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Authenticate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/' active>Home</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/movies'>Movies</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" routerLink='/loginuser'>login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='/registeruser'>Register</a>
+                </li> -->
+                <ul class="navbar-nav">
+                    <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/loginuser" routerLinkActive="active">Login</a>
+                    <a class="nav-link" *ngIf="!_authService.loggedIn()" routerLink="/registeruser" routerLinkActive="active">Register</a>
+                    <a class="nav-link" style="cursor:pointer" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()">Logout</a>        
+                </ul>
+            </ul>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>    
+</div>
